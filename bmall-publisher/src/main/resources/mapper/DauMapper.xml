@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bw.bmall.publisher.mapper.DauMapper">
+    <select id="selectDauTotal" resultType="Long">
+        select count(*) from BMALL_DAU where LOGDATE=#{date}
+    </select>
+
+    <select id="selectDauTotalHours" resultMap="dauTotalHour">
+        select LOGHOUR hours,count(*) cts from BMALL_DAU where LOGDATE=#{date}
+        group by LOGHOUR
+    </select>
+    <resultMap id="dauTotalHour" type="java.util.Map" autoMapping="true">
+        <result property="hours" column="hours"/>
+        <result property="cts" column="cts"/>
+    </resultMap>
+
+
+</mapper>

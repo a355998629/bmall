@@ -11,6 +11,8 @@
     <modules>
         <module>bmall-common</module>
         <module>bmall-mock</module>
+        <module>bmall-logger</module>
+        <module>bmall-realtime</module>
     </modules>
     <properties>
         <spark.version>2.1.1</spark.version>
@@ -37,11 +39,13 @@
     <dependencies>
         <!--此处放日志包，所有项目都要引用-->
         <!-- 所有子项目的日志框架 -->
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>jcl-over-slf4j</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -53,6 +57,7 @@
             <version>${slf4j.version}</version>
         </dependency>
         <!-- 具体的日志实现 -->
+
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
